@@ -2,7 +2,12 @@
 
 Pipeline for constructing equity index volatility surfaces from market option prices.
 
-Fetches live SPY options data, extracts implied volatilities via Black's model, and calibrates both per-expiry SVI and joint SSVI parameterizations. The mathematical derivations are in the accompanying note.
+Fetches live SPY options data from Yahoo Finance, extracts forward prices via put-call parity, computes implied volatilities using Black's model, and calibrates the volatility surface. The implementation supports two parameterizations:
+
+- SVI (per-expiry): 5 parameters per slice, near-perfect fits, no cross-expiry consistency
+- SSVI (joint): 3 global parameters, arbitrage-free by construction, smooth interpolation across tenors
+
+The framework -- from option payoffs through Black-Scholes to SVI/SSVI calibration -- are in the accompanying note..
 
 ![SSVI Fitted Surface](output/plot_3d_smooth_20251230_224114.png)
 
