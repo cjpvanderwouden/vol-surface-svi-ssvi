@@ -4,7 +4,7 @@ Pipeline for constructing equity index volatility surfaces from market option pr
 
 Fetches live SPY options data, extracts implied volatilities via Black's model, and calibrates both per-expiry SVI and joint SSVI parameterizations. The mathematical derivations are in the accompanying note.
 
-![SSVI Fitted Surface](output/plot_ssvi_surface.png)
+![SSVI Fitted Surface](output/plot_3d_smooth_20251230_224114.png)
 
 ## Files
 
