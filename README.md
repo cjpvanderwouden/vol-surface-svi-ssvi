@@ -1,24 +1,20 @@
-# Volatility Surface Construction: SVI & SSVI Calibration
+# svi-ssvi-volatility-surface
 
-A pipeline for constructing and parameterizing equity index volatility surfaces from market option prices. Fetches live SPY options data, extracts implied volatilities, and calibrates both per-expiry SVI and joint SSVI parameterizations.
+Pipeline for constructing equity index volatility surfaces from market option prices.
 
-![SSVI Fitted Surface](outputs/plot_ssvi_surface.png)
+Fetches live SPY options data, extracts implied volatilities via Black's model, and calibrates both per-expiry SVI and joint SSVI parameterizations. The mathematical derivations are in the accompanying note.
 
-## Quick Start
+![SSVI Fitted Surface](output/plot_ssvi_surface.png)
 
-```bash
-pip install numpy pandas scipy matplotlib yfinance
+## Files
 
-python data_pipeline.py      # Fetch options, compute IVs
-python svi_calibration.py    # Fit per-expiry SVI
-python ssvi_calibration.py   # Fit joint SSVI
-python visualization.py      # Generate plots
-```
+- `data_pipeline.py`: Fetches option chains, extracts forwards via put-call parity, computes IVs
+- `svi_calibration.py`: Per-expiry SVI fits with butterfly arbitrage check
+- `ssvi_calibration.py`: Joint surface fit with power-law φ(θ)
+- `visualization.py`: Generates diagnostic plots from calibration outputs
 
-## Documentation
+- `volatility_surface_note.pdf`: Mathematical background and explanation of the implementation
 
-See [volatility_surface_note.pdf](volatility_surface_note.pdf) for the full treatment -- from option pricing fundamentals through SVI/SSVI calibration.
-
-## Key Reference
+## References
 
 - Gatheral & Jacquier (2014). *Arbitrage-free SVI volatility surfaces*. Quantitative Finance.
